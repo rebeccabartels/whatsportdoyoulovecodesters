@@ -1,0 +1,53 @@
+sprite = codesters.Sprite("codesters", 0, 100)
+sprite.say("Which is your favorite sport")
+stage.wait(2)
+sprite.say("Enter a, b, c, or d for each question.")
+
+stage.wait(2)
+ques_1 = ("Question 1 do you like to throw Choices - a. yes, i love it   b. only about half the time    c. sometimes I do, sometimes I don't    d. not really")
+
+ques_2 = ("Question 2 Do you like high scorring sports Choices- a. yes, I love it   b. sort of    c. yes, sometmes   d. not really")        
+
+
+ques_3 = ("Question 3) do you like to run Choices- a. yes, it's pretty fun   b. not really    c. it's okay  d. I love it")
+
+ques_4 = ("Question 4 Do you like to play with a lot of people at the same time? Choices - a. not really    b. it's okay    c) yes, I really like it  d) as long as they don't bunch")
+
+
+ques_5 = ("Question 5 Do you like to kick? Choices- a. not at all   b. only the dirt    c. once in a while    d. i live for it")
+quiz = [ques_1, ques_2, ques_3, ques_4, ques_5]
+user_choices = []
+for question in quiz:
+    choice= sprite.ask(question)# add code here
+    stage.wait(1)
+    user_choices.append(choice)
+a_num = user_choices.count("a")
+b_num = user_choices.count("b")
+c_num = user_choices.count("c")
+d_num = user_choices.count("d")
+counts = [a_num, b_num, c_num, d_num]
+result = max (counts)
+if result == a_num:
+    # add your code here
+    sprite.say("You love basketball!")
+    result_sprite = codesters.Sprite("basketball",0,-100)
+    # sprite = codesters.Sprite("image", x, y)
+    stage.set_background("halfcourt")
+
+if result == b_num:
+    result_sprite = codesters.Sprite("baseball",0,-100)
+    sprite.say("You love baseball")
+    stage.set_background("baseballfield")
+
+if result == c_num:
+    result_sprite = codesters.Sprite("football",0,-100)
+    sprite.say("You love football")
+    stage.set_background("footballfield")
+
+if result == d_num:
+    result_sprite = codesters.Sprite("soccerball",0,-100)
+    sprite.say("You love soccer!")
+    stage.set_background("soccerfield")
+
+
+
